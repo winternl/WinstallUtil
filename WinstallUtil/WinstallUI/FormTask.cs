@@ -46,14 +46,74 @@ namespace WinstallUI
                 var attr = fldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
                 if (attr != null && attr.Length > 0)
                 {
-                    cbTaskTypes.Items.Add(((DescriptionAttribute)attr.First()).Description);
+                    cbTaskTypes.Items.Add((attr.First() as DescriptionAttribute).Description);
                 }
             }
         }
-       
+
+        TaskType GetTaskFromDesc(string Desc)
+        {
+            TaskType? tt = null;
+
+            foreach (var fldInfo in typeof(TaskType).GetFields())
+            {
+                var attr = fldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
+                if (attr != null && attr.Length > 0)
+                {
+                    if (string.Compare(((attr.First() as DescriptionAttribute).Description), Desc) == 0)
+                    {
+                        tt = (TaskType)fldInfo.GetValue(null);
+                    }
+                }
+            }
+
+            return tt.GetValueOrDefault();
+        }
+
         private void CbTaskTypes_SelectedValueChanged(object sender, EventArgs e)
         {
+            string taskDesc = cbTaskTypes.SelectedItem.ToString();
+            grpParameters.Controls.Clear();
 
+            int m_X = 10;
+            int m_Y = 30;
+            int m_Padding = 5;
+
+            int txt_Width = 200;
+            int txt_Height = 23;
+
+            // Dynamic Controls in GroupBox
+            // -- Control Location offset by parent, not form.
+
+            switch (GetTaskFromDesc(taskDesc))
+            {
+                case TaskType.COPY_DIR:
+                    {
+                        var ctrl_1 = new Label()
+                        {
+                            Location = new Point(m_X, m_Y),
+                            Text = "Source Directory:"
+                        };
+
+                        var ctrl_2 = new TextBox()
+                        {
+                            Location = new Point(m_X, m_Y + ctrl_1.Height + m_Padding),
+                            Size = new Size(txt_Width, txt_Height)
+                        };
+
+                        grpParameters.Controls.AddRange(new Control[] { ctrl_1, ctrl_2 });
+                    }
+                    break;
+
+                case TaskType.COPY_FILE:
+                    {
+
+                    }
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void btnTestTask_Click(object sender, EventArgs e)

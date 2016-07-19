@@ -32,7 +32,7 @@
             this.lblTaskType = new System.Windows.Forms.Label();
             this.txtTaskName = new System.Windows.Forms.TextBox();
             this.cbTaskTypes = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpParameters = new System.Windows.Forms.GroupBox();
             this.txtTaskDescription = new System.Windows.Forms.TextBox();
             this.lblTaskDescription = new System.Windows.Forms.Label();
             this.btnCreateTask = new System.Windows.Forms.Button();
@@ -74,14 +74,14 @@
             this.cbTaskTypes.Sorted = true;
             this.cbTaskTypes.TabIndex = 3;
             // 
-            // groupBox1
+            // grpParameters
             // 
-            this.groupBox1.Location = new System.Drawing.Point(15, 172);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 249);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Task Parameters";
+            this.grpParameters.Location = new System.Drawing.Point(15, 172);
+            this.grpParameters.Name = "grpParameters";
+            this.grpParameters.Size = new System.Drawing.Size(257, 249);
+            this.grpParameters.TabIndex = 4;
+            this.grpParameters.TabStop = false;
+            this.grpParameters.Text = "Task Parameters";
             // 
             // txtTaskDescription
             // 
@@ -127,7 +127,7 @@
             this.Controls.Add(this.btnCreateTask);
             this.Controls.Add(this.txtTaskDescription);
             this.Controls.Add(this.lblTaskDescription);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpParameters);
             this.Controls.Add(this.cbTaskTypes);
             this.Controls.Add(this.txtTaskName);
             this.Controls.Add(this.lblTaskType);
@@ -151,7 +151,7 @@
         private System.Windows.Forms.Label lblTaskType;
         private System.Windows.Forms.TextBox txtTaskName;
         private System.Windows.Forms.ComboBox cbTaskTypes;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpParameters;
         private System.Windows.Forms.TextBox txtTaskDescription;
         private System.Windows.Forms.Label lblTaskDescription;
         private System.Windows.Forms.Button btnCreateTask;
