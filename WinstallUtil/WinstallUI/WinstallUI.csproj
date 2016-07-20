@@ -61,10 +61,13 @@
     </Compile>
     <Compile Include="Modules\CopyDirectory.cs" />
     <Compile Include="Modules\CopyFile.cs" />
+    <Compile Include="Modules\InstallProgram.cs" />
     <Compile Include="Modules\Src\Entrypoint.cs" />
     <Compile Include="Modules\Src\ExceptionHandler.cs" />
     <Compile Include="Modules\Src\Log.cs" />
     <Compile Include="Modules\Src\TestCase.cs" />
+    <Compile Include="Packer\Entrypoint.cs" />
+    <Compile Include="Packer\QuickLZ.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">

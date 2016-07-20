@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using WinstallUI.Modules.Src;
 
@@ -26,7 +22,9 @@ namespace WinstallUI
         [Description("Run program")]
         RUN_PROG,
         [Description("Run Updates (Windows, Office, Java, Flash)")]
-        UPDATE
+        UPDATE,
+        [Description("Execute Command Line")]
+        EXEC_CMD
     }
 
     public partial class FormTask : Form
@@ -35,8 +33,22 @@ namespace WinstallUI
         {
             InitializeComponent();
 
+            hidePanels();
             populateComboBox();
             cbTaskTypes.SelectedValueChanged += CbTaskTypes_SelectedValueChanged;
+        }
+
+        void hidePanels()
+        {
+            foreach (var panel in grpParameters.Controls)
+            {
+                if (panel is Panel)
+                {
+                    var p = (Panel)panel;
+                    p.Visible = false;
+                    p.Enabled = false;
+                }
+            }
         }
 
         void populateComboBox()
@@ -73,41 +85,72 @@ namespace WinstallUI
         private void CbTaskTypes_SelectedValueChanged(object sender, EventArgs e)
         {
             string taskDesc = cbTaskTypes.SelectedItem.ToString();
-            grpParameters.Controls.Clear();
 
-            int m_X = 10;
-            int m_Y = 30;
-            int m_Padding = 5;
-
-            int txt_Width = 200;
-            int txt_Height = 23;
-
-            // Dynamic Controls in GroupBox
-            // -- Control Location offset by parent, not form.
+            if (string.IsNullOrEmpty(taskDesc))
+                return;
 
             switch (GetTaskFromDesc(taskDesc))
             {
                 case TaskType.COPY_DIR:
                     {
-                        var ctrl_1 = new Label()
-                        {
-                            Location = new Point(m_X, m_Y),
-                            Text = "Source Directory:"
-                        };
+                        panCopyFile.Visible = false;
+                        panCopyFile.Enabled = false;
+                        panCopyDir.Visible = true;
+                        panCopyDir.Enabled = true;
+                        panInstall.Visible = false;
+                        panInstall.Enabled = false;
 
-                        var ctrl_2 = new TextBox()
-                        {
-                            Location = new Point(m_X, m_Y + ctrl_1.Height + m_Padding),
-                            Size = new Size(txt_Width, txt_Height)
-                        };
+                        panCopyDir.BringToFront();
 
-                        grpParameters.Controls.AddRange(new Control[] { ctrl_1, ctrl_2 });
+                        txtEmbedDir.Clear();
+                        txtCopyDirDest.Clear();
+                        cbCopyDir.Items.Clear();
+
+                        foreach (var specDir in Enum.GetValues(typeof(Environment.SpecialFolder)))
+                        {
+                            string dirTitle = Enum.GetName(typeof(Environment.SpecialFolder), specDir);
+                            cbCopyDir.Items.Add(dirTitle);
+                        }
+
+                        cbCopyDir.Sorted = true;
                     }
                     break;
 
                 case TaskType.COPY_FILE:
                     {
+                        panCopyFile.Visible = true;
+                        panCopyFile.Enabled = true;
+                        panCopyDir.Visible = false;
+                        panCopyDir.Enabled = false;
+                        panInstall.Visible = false;
+                        panInstall.Enabled = false;
 
+                        panCopyFile.BringToFront();
+
+                        txtCopyFileDest.Clear();
+                        txtEmbedFile.Clear();
+                        cbCopyFileRoot.Items.Clear();
+
+                        foreach (var specDir in Enum.GetValues(typeof(Environment.SpecialFolder)))
+                        {
+                            string dirTitle = Enum.GetName(typeof(Environment.SpecialFolder), specDir);
+                            cbCopyFileRoot.Items.Add(dirTitle);
+                        }
+
+                        cbCopyFileRoot.Sorted = true;
+                    }
+                    break;
+
+                case TaskType.INSTALL_PROG:
+                    {
+                        panCopyFile.Enabled = false;
+                        panCopyFile.Visible = false;
+                        panCopyDir.Enabled = false;
+                        panCopyDir.Visible = false;
+                        panInstall.Visible = true;
+                        panInstall.Enabled = true;
+
+                        panInstall.BringToFront();
                     }
                     break;
 
@@ -119,6 +162,45 @@ namespace WinstallUI
         private void btnTestTask_Click(object sender, EventArgs e)
         {
             TestCase.testCopyFile();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { CheckFileExists = true })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    txtEmbedFile.Text = ofd.FileName;
+                }
+            }
+        }
+
+        private void btnEmbedDirectory_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog fbd = new FolderBrowserDialog())
+            {
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    if (!string.IsNullOrEmpty(fbd.SelectedPath))
+                    {
+                        if (Directory.Exists(fbd.SelectedPath))
+                        {
+                            txtEmbedDir.Text = fbd.SelectedPath;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnBrowseInstall_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Windows Installer|*.msi", CheckFileExists = true })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    txtInstallerPath.Text = ofd.FileName;
+                }
+            }
         }
     }
 }
