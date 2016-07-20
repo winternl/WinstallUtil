@@ -99,6 +99,8 @@ namespace WinstallUI
                         panCopyDir.Enabled = true;
                         panInstall.Visible = false;
                         panInstall.Enabled = false;
+                        panCreateUser.Visible = false;
+                        panCreateUser.Enabled = false;
 
                         panCopyDir.BringToFront();
 
@@ -124,6 +126,8 @@ namespace WinstallUI
                         panCopyDir.Enabled = false;
                         panInstall.Visible = false;
                         panInstall.Enabled = false;
+                        panCreateUser.Visible = false;
+                        panCreateUser.Enabled = false;
 
                         panCopyFile.BringToFront();
 
@@ -149,8 +153,29 @@ namespace WinstallUI
                         panCopyDir.Visible = false;
                         panInstall.Visible = true;
                         panInstall.Enabled = true;
+                        panCreateUser.Visible = false;
+                        panCreateUser.Enabled = false;
 
                         panInstall.BringToFront();
+                    }
+                    break;
+
+                case TaskType.CREATE_ACCOUNT:
+                    {
+                        //panCopyFile.Enabled = false;
+                        //panCopyFile.Visible = false;
+                        //panCopyDir.Enabled = false;
+                        //panCopyDir.Visible = false;
+                        //panInstall.Visible = false;
+                        //panInstall.Enabled = false;
+                        panCreateUser.Visible = true;
+                        panCreateUser.Enabled = true;
+
+                        panCreateUser.BringToFront();
+
+                        txtAccUsername.Clear();
+                        txtAccPassword.Clear();
+                        txtAccVerifyPassword.Clear();
                     }
                     break;
 
@@ -194,7 +219,7 @@ namespace WinstallUI
 
         private void btnBrowseInstall_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Windows Installer|*.msi", CheckFileExists = true })
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Portable Executable|*.exe|Windows Installer|*.msi", CheckFileExists = true })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {

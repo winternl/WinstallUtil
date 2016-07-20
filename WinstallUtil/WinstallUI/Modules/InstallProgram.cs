@@ -1,19 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Diagnostics;
 
 namespace WinstallUI.Modules
 {
     public class InstallProgram
     {
-        /* static bool copyToTemp(byte[] buffer, ref string tmpPath)
-         {
+        static bool copyToTemp(byte[] buffer, ref string tmpPath)
+        {
+            FileInfo fInfo = null;
 
-         }
-         */
+            if (buffer[0] == 0x4d && buffer[1] == 0x5a)
+                fInfo = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(), ".exe"));
+            else
+                fInfo = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(), ".msi"));
+
+            if (fInfo.Exists)
+                return false;
+
+            fInfo.Attributes = FileAttributes.Normal;
+
+            using (FileStream fs = fInfo.OpenWrite())
+            {
+                fs.Write(buffer, 0, buffer.Length);
+            }
+
+            if (!fInfo.Exists)
+                return false;
+
+            tmpPath = fInfo.FullName;
+
+            return true;
+        }
 
         public static void Install(byte[] pInstallBuffer, bool bSilent)
         {
@@ -22,7 +39,16 @@ namespace WinstallUI.Modules
             string strError = string.Empty;
             int dwExit = 0;
 
-            var psi = new ProcessStartInfo(string.Concat(tmpPath, " \\qn"));
+            if (!copyToTemp(pInstallBuffer, ref tmpPath))
+            {
+                return;
+            }
+
+            var psi = new ProcessStartInfo(string.Concat("\"", tmpPath, "\""));
+
+            if (pInstallBuffer[0] != 0x4d && pInstallBuffer[1] != 0x5a)
+                psi.Arguments = "/qn";
+
             psi.CreateNoWindow = true;
             psi.WindowStyle = ProcessWindowStyle.Hidden;
             psi.UseShellExecute = false;
@@ -39,10 +65,9 @@ namespace WinstallUI.Modules
                 dwExit = proc.ExitCode;
             }
 
-            if (string.IsNullOrEmpty(strError))
-            {
-                
-            }
+            System.Windows.Forms.MessageBox.Show(strError);
+            System.Windows.Forms.MessageBox.Show(strOutput);
+            System.Windows.Forms.MessageBox.Show(dwExit.ToString());
         }
     }
 }
