@@ -45,9 +45,15 @@ namespace WinstallUI.Modules.Src
         }
 
         [TestMethod]
-        static void testCopyDirectory()
+        public static void testCopyDirectory()
         {
             if (!ShowTestCase()) return;
+        }
+
+        [TestMethod]
+        public static void testCreateUser()
+        {
+            clsUserAccount.Create("testuser", "passsword#3", true);
         }
     }
 }

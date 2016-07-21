@@ -41,6 +41,7 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -69,6 +70,8 @@
     <Compile Include="Modules\Src\ExceptionHandler.cs" />
     <Compile Include="Modules\Src\Log.cs" />
     <Compile Include="Modules\Src\TestCase.cs" />
+    <Compile Include="Modules\UserAccount.cs" />
+    <Compile Include="Modules\Win32Interop.cs" />
     <Compile Include="Packer\Entrypoint.cs" />
     <Compile Include="Packer\QuickLZ.cs" />
     <Compile Include="Program.cs" />

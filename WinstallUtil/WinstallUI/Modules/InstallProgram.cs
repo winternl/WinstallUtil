@@ -3,7 +3,7 @@ using System.IO;
 
 namespace WinstallUI.Modules
 {
-    public class InstallProgram
+    public class clsInstallProgram
     {
         static bool copyToTemp(byte[] buffer, ref string tmpPath)
         {

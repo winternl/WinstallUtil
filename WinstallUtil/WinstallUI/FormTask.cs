@@ -93,14 +93,8 @@ namespace WinstallUI
             {
                 case TaskType.COPY_DIR:
                     {
-                        panCopyFile.Visible = false;
-                        panCopyFile.Enabled = false;
                         panCopyDir.Visible = true;
                         panCopyDir.Enabled = true;
-                        panInstall.Visible = false;
-                        panInstall.Enabled = false;
-                        panCreateUser.Visible = false;
-                        panCreateUser.Enabled = false;
 
                         panCopyDir.BringToFront();
 
@@ -122,12 +116,6 @@ namespace WinstallUI
                     {
                         panCopyFile.Visible = true;
                         panCopyFile.Enabled = true;
-                        panCopyDir.Visible = false;
-                        panCopyDir.Enabled = false;
-                        panInstall.Visible = false;
-                        panInstall.Enabled = false;
-                        panCreateUser.Visible = false;
-                        panCreateUser.Enabled = false;
 
                         panCopyFile.BringToFront();
 
@@ -147,14 +135,8 @@ namespace WinstallUI
 
                 case TaskType.INSTALL_PROG:
                     {
-                        panCopyFile.Enabled = false;
-                        panCopyFile.Visible = false;
-                        panCopyDir.Enabled = false;
-                        panCopyDir.Visible = false;
                         panInstall.Visible = true;
                         panInstall.Enabled = true;
-                        panCreateUser.Visible = false;
-                        panCreateUser.Enabled = false;
 
                         panInstall.BringToFront();
                     }
@@ -162,12 +144,6 @@ namespace WinstallUI
 
                 case TaskType.CREATE_ACCOUNT:
                     {
-                        //panCopyFile.Enabled = false;
-                        //panCopyFile.Visible = false;
-                        //panCopyDir.Enabled = false;
-                        //panCopyDir.Visible = false;
-                        //panInstall.Visible = false;
-                        //panInstall.Enabled = false;
                         panCreateUser.Visible = true;
                         panCreateUser.Enabled = true;
 
@@ -186,7 +162,7 @@ namespace WinstallUI
 
         private void btnTestTask_Click(object sender, EventArgs e)
         {
-            TestCase.testCopyFile();
+            TestCase.testCreateUser();
         }
 
         private void button1_Click(object sender, EventArgs e)
