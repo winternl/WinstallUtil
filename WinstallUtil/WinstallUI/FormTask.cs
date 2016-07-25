@@ -29,13 +29,34 @@ namespace WinstallUI
 
     public partial class FormTask : Form
     {
-        public FormTask()
+        private FormMain __FormMain;
+        private static FormSchedTask TriggerInstance;
+
+        public FormTask(FormMain FrmMain)
         {
             InitializeComponent();
+
+            __FormMain = FrmMain;
+
+            LocationChanged += FormTask_LocationChanged;
 
             hidePanels();
             populateComboBox();
             cbTaskTypes.SelectedValueChanged += CbTaskTypes_SelectedValueChanged;
+        }
+
+        private void FormTask_LocationChanged(object sender, EventArgs e)
+        {
+            if (TriggerInstance != null)
+            {
+                if (!TriggerInstance.IsDisposed && TriggerInstance.IsHandleCreated)
+                {
+                    TriggerInstance.Invoke(new MethodInvoker(() =>
+                    {
+                        TriggerInstance.Location = new System.Drawing.Point(Location.X + Width + 5, Location.Y);
+                    }));
+                }
+            }
         }
 
         void hidePanels()
@@ -111,7 +132,6 @@ namespace WinstallUI
                         cbCopyDir.Sorted = true;
                     }
                     break;
-
                 case TaskType.COPY_FILE:
                     {
                         panCopyFile.Visible = true;
@@ -132,7 +152,6 @@ namespace WinstallUI
                         cbCopyFileRoot.Sorted = true;
                     }
                     break;
-
                 case TaskType.INSTALL_PROG:
                     {
                         panInstall.Visible = true;
@@ -141,7 +160,6 @@ namespace WinstallUI
                         panInstall.BringToFront();
                     }
                     break;
-
                 case TaskType.CREATE_ACCOUNT:
                     {
                         panCreateUser.Visible = true;
@@ -154,7 +172,18 @@ namespace WinstallUI
                         txtAccVerifyPassword.Clear();
                     }
                     break;
+                case TaskType.SCHEDULED_TASK:
+                    {
+                        panSchedTask.Visible = true;
+                        panSchedTask.Enabled = true;
 
+                        panSchedTask.BringToFront();
+
+                        txtSchedTaskName.Clear();
+                        txtSchedTaskPath.Clear();
+                        lvTriggers.Items.Clear();
+                    }
+                    break;
                 default:
                     break;
             }
@@ -162,7 +191,7 @@ namespace WinstallUI
 
         private void btnTestTask_Click(object sender, EventArgs e)
         {
-            TestCase.testCreateUser();
+            Modules.ScheduledTask.test();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -201,6 +230,21 @@ namespace WinstallUI
                 {
                     txtInstallerPath.Text = ofd.FileName;
                 }
+            }
+        }
+
+
+        private void btnAddTrigger_Click(object sender, EventArgs e)
+        {
+            if (TriggerInstance != null && !TriggerInstance.IsDisposed)
+            {
+                TriggerInstance.BringToFront();
+                TriggerInstance.Focus();
+            }
+            else
+            {
+                TriggerInstance = new FormSchedTask(this);
+                TriggerInstance.Show();
             }
         }
     }

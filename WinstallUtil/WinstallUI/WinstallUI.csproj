@@ -57,6 +57,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSchedTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSchedTask.Designer.cs">
+      <DependentUpon>FormSchedTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,7 @@
     <Compile Include="Modules\CopyDirectory.cs" />
     <Compile Include="Modules\CopyFile.cs" />
     <Compile Include="Modules\InstallProgram.cs" />
+    <Compile Include="Modules\ScheduledTask.cs" />
     <Compile Include="Modules\Src\Entrypoint.cs" />
     <Compile Include="Modules\Src\ExceptionHandler.cs" />
     <Compile Include="Modules\Src\Log.cs" />
@@ -78,6 +85,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSchedTask.resx">
+      <DependentUpon>FormSchedTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTask.resx">
       <DependentUpon>FormTask.cs</DependentUpon>
@@ -102,7 +112,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="TaskScheduler">
+      <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

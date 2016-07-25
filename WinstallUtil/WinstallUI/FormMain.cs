@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace WinstallUI
@@ -17,7 +12,7 @@ namespace WinstallUI
         {
             InitializeComponent();
 
-            TaskInstance = new FormTask();
+            TaskInstance = new FormTask(this);
 
             LocationChanged += FormMain_LocationChanged;
         }
@@ -40,7 +35,7 @@ namespace WinstallUI
         {
             if (TaskInstance.IsDisposed)
             {
-                TaskInstance = new FormTask();
+                TaskInstance = new FormTask(this);
             }
 
             TaskInstance.StartPosition = FormStartPosition.Manual;

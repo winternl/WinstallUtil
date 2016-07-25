@@ -34,6 +34,14 @@
             this.txtTaskName = new System.Windows.Forms.TextBox();
             this.cbTaskTypes = new System.Windows.Forms.ComboBox();
             this.grpParameters = new System.Windows.Forms.GroupBox();
+            this.panCreateUser = new System.Windows.Forms.Panel();
+            this.chkAdmin = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtAccVerifyPassword = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtAccPassword = new System.Windows.Forms.TextBox();
+            this.lbl0 = new System.Windows.Forms.Label();
+            this.txtAccUsername = new System.Windows.Forms.TextBox();
             this.panInstall = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,19 +71,22 @@
             this.btnTestTask = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panCreateUser = new System.Windows.Forms.Panel();
-            this.lbl0 = new System.Windows.Forms.Label();
-            this.txtAccUsername = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtAccPassword = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtAccVerifyPassword = new System.Windows.Forms.TextBox();
-            this.chkAdmin = new System.Windows.Forms.CheckBox();
+            this.panSchedTask = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSchedTaskPath = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtSchedTaskName = new System.Windows.Forms.TextBox();
+            this.lvTriggers = new System.Windows.Forms.ListView();
+            this.btnAddTrigger = new System.Windows.Forms.Button();
+            this.btnRemoveTrigger = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grpParameters.SuspendLayout();
+            this.panCreateUser.SuspendLayout();
             this.panInstall.SuspendLayout();
             this.panCopyDir.SuspendLayout();
             this.panCopyFile.SuspendLayout();
-            this.panCreateUser.SuspendLayout();
+            this.panSchedTask.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTaskName
@@ -116,6 +127,7 @@
             // 
             // grpParameters
             // 
+            this.grpParameters.Controls.Add(this.panSchedTask);
             this.grpParameters.Controls.Add(this.panCreateUser);
             this.grpParameters.Controls.Add(this.panInstall);
             this.grpParameters.Controls.Add(this.panCopyDir);
@@ -126,6 +138,84 @@
             this.grpParameters.TabIndex = 4;
             this.grpParameters.TabStop = false;
             this.grpParameters.Text = "Task Parameters";
+            // 
+            // panCreateUser
+            // 
+            this.panCreateUser.Controls.Add(this.chkAdmin);
+            this.panCreateUser.Controls.Add(this.label8);
+            this.panCreateUser.Controls.Add(this.txtAccVerifyPassword);
+            this.panCreateUser.Controls.Add(this.label7);
+            this.panCreateUser.Controls.Add(this.txtAccPassword);
+            this.panCreateUser.Controls.Add(this.lbl0);
+            this.panCreateUser.Controls.Add(this.txtAccUsername);
+            this.panCreateUser.Location = new System.Drawing.Point(6, 22);
+            this.panCreateUser.Name = "panCreateUser";
+            this.panCreateUser.Size = new System.Drawing.Size(245, 221);
+            this.panCreateUser.TabIndex = 11;
+            this.panCreateUser.Visible = false;
+            // 
+            // chkAdmin
+            // 
+            this.chkAdmin.AutoSize = true;
+            this.chkAdmin.Location = new System.Drawing.Point(126, 158);
+            this.chkAdmin.Name = "chkAdmin";
+            this.chkAdmin.Size = new System.Drawing.Size(99, 19);
+            this.chkAdmin.TabIndex = 13;
+            this.chkAdmin.Text = "Administrator";
+            this.chkAdmin.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 15);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Verify Password:";
+            // 
+            // txtAccVerifyPassword
+            // 
+            this.txtAccVerifyPassword.Location = new System.Drawing.Point(17, 119);
+            this.txtAccVerifyPassword.MaxLength = 256;
+            this.txtAccVerifyPassword.Name = "txtAccVerifyPassword";
+            this.txtAccVerifyPassword.PasswordChar = '•';
+            this.txtAccVerifyPassword.Size = new System.Drawing.Size(208, 23);
+            this.txtAccVerifyPassword.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 15);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Password:";
+            // 
+            // txtAccPassword
+            // 
+            this.txtAccPassword.Location = new System.Drawing.Point(17, 75);
+            this.txtAccPassword.MaxLength = 256;
+            this.txtAccPassword.Name = "txtAccPassword";
+            this.txtAccPassword.PasswordChar = '•';
+            this.txtAccPassword.Size = new System.Drawing.Size(208, 23);
+            this.txtAccPassword.TabIndex = 9;
+            // 
+            // lbl0
+            // 
+            this.lbl0.AutoSize = true;
+            this.lbl0.Location = new System.Drawing.Point(14, 13);
+            this.lbl0.Name = "lbl0";
+            this.lbl0.Size = new System.Drawing.Size(63, 15);
+            this.lbl0.TabIndex = 8;
+            this.lbl0.Text = "Username:";
+            // 
+            // txtAccUsername
+            // 
+            this.txtAccUsername.Location = new System.Drawing.Point(17, 31);
+            this.txtAccUsername.MaxLength = 256;
+            this.txtAccUsername.Name = "txtAccUsername";
+            this.txtAccUsername.Size = new System.Drawing.Size(208, 23);
+            this.txtAccUsername.TabIndex = 0;
             // 
             // panInstall
             // 
@@ -408,89 +498,109 @@
             this.btnHelp.Text = "?";
             this.btnHelp.UseVisualStyleBackColor = true;
             // 
-            // panCreateUser
+            // panSchedTask
             // 
-            this.panCreateUser.Controls.Add(this.chkAdmin);
-            this.panCreateUser.Controls.Add(this.label8);
-            this.panCreateUser.Controls.Add(this.txtAccVerifyPassword);
-            this.panCreateUser.Controls.Add(this.label7);
-            this.panCreateUser.Controls.Add(this.txtAccPassword);
-            this.panCreateUser.Controls.Add(this.lbl0);
-            this.panCreateUser.Controls.Add(this.txtAccUsername);
-            this.panCreateUser.Location = new System.Drawing.Point(6, 22);
-            this.panCreateUser.Name = "panCreateUser";
-            this.panCreateUser.Size = new System.Drawing.Size(245, 221);
-            this.panCreateUser.TabIndex = 11;
-            this.panCreateUser.Visible = false;
+            this.panSchedTask.Controls.Add(this.btnRemoveTrigger);
+            this.panSchedTask.Controls.Add(this.btnAddTrigger);
+            this.panSchedTask.Controls.Add(this.lvTriggers);
+            this.panSchedTask.Controls.Add(this.label10);
+            this.panSchedTask.Controls.Add(this.label11);
+            this.panSchedTask.Controls.Add(this.txtSchedTaskPath);
+            this.panSchedTask.Controls.Add(this.label12);
+            this.panSchedTask.Controls.Add(this.txtSchedTaskName);
+            this.panSchedTask.Location = new System.Drawing.Point(6, 22);
+            this.panSchedTask.Name = "panSchedTask";
+            this.panSchedTask.Size = new System.Drawing.Size(245, 221);
+            this.panSchedTask.TabIndex = 12;
+            this.panSchedTask.Visible = false;
             // 
-            // lbl0
+            // label10
             // 
-            this.lbl0.AutoSize = true;
-            this.lbl0.Location = new System.Drawing.Point(14, 13);
-            this.lbl0.Name = "lbl0";
-            this.lbl0.Size = new System.Drawing.Size(63, 15);
-            this.lbl0.TabIndex = 8;
-            this.lbl0.Text = "Username:";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(14, 101);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 15);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Triggers:";
             // 
-            // txtAccUsername
+            // label11
             // 
-            this.txtAccUsername.Location = new System.Drawing.Point(17, 31);
-            this.txtAccUsername.MaxLength = 256;
-            this.txtAccUsername.Name = "txtAccUsername";
-            this.txtAccUsername.Size = new System.Drawing.Size(208, 23);
-            this.txtAccUsername.TabIndex = 0;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 57);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 15);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Program to Run:";
             // 
-            // label7
+            // txtSchedTaskPath
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 15);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Password:";
+            this.txtSchedTaskPath.Location = new System.Drawing.Point(17, 75);
+            this.txtSchedTaskPath.MaxLength = 256;
+            this.txtSchedTaskPath.Name = "txtSchedTaskPath";
+            this.txtSchedTaskPath.PasswordChar = '•';
+            this.txtSchedTaskPath.Size = new System.Drawing.Size(208, 23);
+            this.txtSchedTaskPath.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.txtSchedTaskPath, "Path to the program to run on task");
             // 
-            // txtAccPassword
+            // label12
             // 
-            this.txtAccPassword.Location = new System.Drawing.Point(17, 75);
-            this.txtAccPassword.MaxLength = 256;
-            this.txtAccPassword.Name = "txtAccPassword";
-            this.txtAccPassword.PasswordChar = '•';
-            this.txtAccPassword.Size = new System.Drawing.Size(208, 23);
-            this.txtAccPassword.TabIndex = 9;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(14, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 15);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Task Name:";
             // 
-            // label8
+            // txtSchedTaskName
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 15);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Verify Password:";
+            this.txtSchedTaskName.Location = new System.Drawing.Point(17, 31);
+            this.txtSchedTaskName.MaxLength = 256;
+            this.txtSchedTaskName.Name = "txtSchedTaskName";
+            this.txtSchedTaskName.Size = new System.Drawing.Size(208, 23);
+            this.txtSchedTaskName.TabIndex = 0;
             // 
-            // txtAccVerifyPassword
+            // lvTriggers
             // 
-            this.txtAccVerifyPassword.Location = new System.Drawing.Point(17, 119);
-            this.txtAccVerifyPassword.MaxLength = 256;
-            this.txtAccVerifyPassword.Name = "txtAccVerifyPassword";
-            this.txtAccVerifyPassword.PasswordChar = '•';
-            this.txtAccVerifyPassword.Size = new System.Drawing.Size(208, 23);
-            this.txtAccVerifyPassword.TabIndex = 11;
+            this.lvTriggers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.lvTriggers.GridLines = true;
+            this.lvTriggers.Location = new System.Drawing.Point(17, 119);
+            this.lvTriggers.Name = "lvTriggers";
+            this.lvTriggers.Size = new System.Drawing.Size(182, 81);
+            this.lvTriggers.TabIndex = 13;
+            this.lvTriggers.UseCompatibleStateImageBehavior = false;
+            this.lvTriggers.View = System.Windows.Forms.View.Details;
             // 
-            // chkAdmin
+            // btnAddTrigger
             // 
-            this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Location = new System.Drawing.Point(126, 158);
-            this.chkAdmin.Name = "chkAdmin";
-            this.chkAdmin.Size = new System.Drawing.Size(99, 19);
-            this.chkAdmin.TabIndex = 13;
-            this.chkAdmin.Text = "Administrator";
-            this.chkAdmin.UseVisualStyleBackColor = true;
+            this.btnAddTrigger.Location = new System.Drawing.Point(205, 119);
+            this.btnAddTrigger.Name = "btnAddTrigger";
+            this.btnAddTrigger.Size = new System.Drawing.Size(20, 23);
+            this.btnAddTrigger.TabIndex = 14;
+            this.btnAddTrigger.Text = "+";
+            this.toolTip1.SetToolTip(this.btnAddTrigger, "Add trigger");
+            this.btnAddTrigger.UseVisualStyleBackColor = true;
+            this.btnAddTrigger.Click += new System.EventHandler(this.btnAddTrigger_Click);
+            // 
+            // btnRemoveTrigger
+            // 
+            this.btnRemoveTrigger.Location = new System.Drawing.Point(205, 148);
+            this.btnRemoveTrigger.Name = "btnRemoveTrigger";
+            this.btnRemoveTrigger.Size = new System.Drawing.Size(20, 23);
+            this.btnRemoveTrigger.TabIndex = 15;
+            this.btnRemoveTrigger.Text = "-";
+            this.toolTip1.SetToolTip(this.btnRemoveTrigger, "Remove selected trigger");
+            this.btnRemoveTrigger.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Trigger";
             // 
             // FormTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 462);
+            this.ClientSize = new System.Drawing.Size(282, 462);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnTestTask);
             this.Controls.Add(this.btnCreateTask);
@@ -510,14 +620,16 @@
             this.ShowInTaskbar = false;
             this.Text = "Create Task";
             this.grpParameters.ResumeLayout(false);
+            this.panCreateUser.ResumeLayout(false);
+            this.panCreateUser.PerformLayout();
             this.panInstall.ResumeLayout(false);
             this.panInstall.PerformLayout();
             this.panCopyDir.ResumeLayout(false);
             this.panCopyDir.PerformLayout();
             this.panCopyFile.ResumeLayout(false);
             this.panCopyFile.PerformLayout();
-            this.panCreateUser.ResumeLayout(false);
-            this.panCreateUser.PerformLayout();
+            this.panSchedTask.ResumeLayout(false);
+            this.panSchedTask.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,5 +679,15 @@
         private System.Windows.Forms.TextBox txtAccPassword;
         private System.Windows.Forms.Label lbl0;
         private System.Windows.Forms.TextBox txtAccUsername;
+        private System.Windows.Forms.Panel panSchedTask;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtSchedTaskPath;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtSchedTaskName;
+        private System.Windows.Forms.Button btnRemoveTrigger;
+        private System.Windows.Forms.Button btnAddTrigger;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        public System.Windows.Forms.ListView lvTriggers;
     }
 }
