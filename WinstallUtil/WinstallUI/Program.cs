@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace WinstallUI
@@ -13,6 +14,9 @@ namespace WinstallUI
         [STAThread]
         static void Main()
         {
+            var packer = new StubPacker(@"C:\Users\oph-admin\Downloads\ILSPY.exe");
+            packer.Pack("%HOMEPATH%\\Desktop\\Packed.exe");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());

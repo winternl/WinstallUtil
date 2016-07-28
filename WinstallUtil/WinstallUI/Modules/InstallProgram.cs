@@ -12,7 +12,7 @@ namespace WinstallUI.Modules
             if (buffer[0] == 0x4d && buffer[1] == 0x5a)
                 fInfo = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(), ".exe"));
             else
-                fInfo = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(), ".msi"));
+                fInfo = new FileInfo(Path.ChangeExtension(Path.GetTempFileName(),    ".msi"));
 
             if (fInfo.Exists)
                 return false;

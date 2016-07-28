@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compiler\Compiler.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,8 +79,8 @@
     <Compile Include="Modules\Src\Log.cs" />
     <Compile Include="Modules\Src\TestCase.cs" />
     <Compile Include="Modules\UserAccount.cs" />
-    <Compile Include="Modules\Win32Interop.cs" />
     <Compile Include="Packer\Entrypoint.cs" />
+    <Compile Include="Packer\StubPacker.cs" />
     <Compile Include="Packer\QuickLZ.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">

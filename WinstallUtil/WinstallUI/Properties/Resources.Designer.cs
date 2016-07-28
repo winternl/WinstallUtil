@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WinstallUI.Properties
-{
-
-
+namespace WinstallUI.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,89 @@ namespace WinstallUI.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WinstallUI.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.IO;
+        ///using System.Reflection;
+        ///
+        ///namespace WinstallUI.Packer
+        ///{
+        ///    class Entrypoint
+        ///    {
+        ///        static void Main(string[] args)
+        ///        {
+        ///            Stream rStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(&quot;1&quot;);
+        ///
+        ///            if (rStream != null &amp;&amp; rStream.Length &gt; 0)
+        ///            {
+        ///                byte[] installerExe = new byte[rStream.Length];
+        ///                rStream.Read(installerExe, 0, (int)rStream.Length);
+        ///
+        ///                installerExe = Quic [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Entrypoint {
+            get {
+                return ResourceManager.GetString("Entrypoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///
+        ///namespace WinstallUI.Packer
+        ///{
+        ///    // QuickLZ data compression library
+        ///    // Copyright (C) 2006-2011 Lasse Mikkel Reinhold
+        ///    // lar@quicklz.com
+        ///    //
+        ///    // QuickLZ can be used for free under the GPL 1, 2 or 3 license (where anything 
+        ///    // released into public must be open source) or under a commercial license if such 
+        ///    // has been acquired (see http://www.quicklz.com/order.html). The commercial licen [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string QuickLZ {
+            get {
+                return ResourceManager.GetString("QuickLZ", resourceCulture);
             }
         }
     }

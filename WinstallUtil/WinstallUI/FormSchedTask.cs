@@ -6,6 +6,7 @@ namespace WinstallUI
     public partial class FormSchedTask : Form
     {
         private FormTask __FrmTask;
+        private string Desc;
 
         public FormSchedTask(FormTask FrmTask)
         {
@@ -33,13 +34,27 @@ namespace WinstallUI
 
             switch (sTaskType)
             {
+                case "On logon":
+                    grpDateTime.Enabled = false;
+                    Desc = "Task will occur at logon.";
+                    break;
+                case "At startup":
+                    grpDateTime.Enabled = false;
+                    Desc = "Task will occur at startup.";
+                    break;
+                case "On idle":
+                    grpDateTime.Enabled = false;
+                    Desc = "Task will occur on idle.";
+                    break;
                 case "Daily":
                     grpDateTime.Enabled = true;
                     cbDay.Enabled = false;
+                    Desc = "Task will occur daily at ";
                     break;
                 case "Weekly":
                     grpDateTime.Enabled = true;
                     cbDay.Enabled = true;
+                    Desc = "Task will occur weekly on ";
                     break;
                 default:
                     grpDateTime.Enabled = false;
@@ -49,7 +64,27 @@ namespace WinstallUI
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (cbSchedTaskType.SelectedItem != null &&
+                !string.IsNullOrEmpty(cbSchedTaskType.SelectedItem.ToString()))
+            {
+                __FrmTask.Invoke(
+                    new MethodInvoker(() =>
+                   {
+                       var lvi = new ListViewItem();
+                       lvi.Text = cbSchedTaskType.SelectedItem.ToString();
 
+                       if (grpDateTime.Enabled)
+                       {
+                           if (Desc.Contains("daily"))
+                               Desc += numHR.Value.ToString() + ":" + numMN.Value.ToString() + ".";
+                           else
+                               Desc += cbDay.SelectedItem.ToString() + "s" + " at" + numHR.Value.ToString() + ":" + numMN.Value.ToString() + ".";
+                       }
+
+                       lvi.SubItems.Add(Desc);
+                       __FrmTask.lvTriggers.Items.Add(lvi);
+                   }));
+            }
         }
     }
 }

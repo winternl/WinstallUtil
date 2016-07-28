@@ -89,6 +89,11 @@
             // numHR
             // 
             this.numHR.Location = new System.Drawing.Point(61, 31);
+            this.numHR.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
             this.numHR.Name = "numHR";
             this.numHR.Size = new System.Drawing.Size(44, 23);
             this.numHR.TabIndex = 5;
@@ -96,6 +101,11 @@
             // numMN
             // 
             this.numMN.Location = new System.Drawing.Point(165, 31);
+            this.numMN.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
             this.numMN.Name = "numMN";
             this.numMN.Size = new System.Drawing.Size(44, 23);
             this.numMN.TabIndex = 7;

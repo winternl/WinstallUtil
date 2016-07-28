@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace WinstallUI.Packer
+﻿namespace WinstallUI.Packer
 {
     // QuickLZ data compression library
     // Copyright (C) 2006-2011 Lasse Mikkel Reinhold

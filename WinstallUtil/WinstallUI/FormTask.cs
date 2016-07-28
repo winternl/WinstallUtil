@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using WinstallUI.Modules.Src;
 
 namespace WinstallUI
 {
@@ -245,6 +244,17 @@ namespace WinstallUI
             {
                 TriggerInstance = new FormSchedTask(this);
                 TriggerInstance.Show();
+            }
+        }
+
+        private void btnRemoveTrigger_Click(object sender, EventArgs e)
+        {
+            int arr = lvTriggers.SelectedItems.Count;
+
+            if (arr > 0)
+            {
+                foreach (var i in lvTriggers.SelectedItems)
+                    lvTriggers.Items.Remove((ListViewItem)i);
             }
         }
     }
