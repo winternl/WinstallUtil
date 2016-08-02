@@ -3,6 +3,15 @@ using System.Windows.Forms;
 
 namespace WinstallUI
 {
+    public enum TaskTrigger : int
+    {
+        LOGON = 1,
+        STARTUP = 2,
+        IDLE = 3,
+        DAILY = 4,
+        WEEKLY = 5
+    }
+
     public partial class FormSchedTask : Form
     {
         private FormTask __FrmTask;
@@ -85,6 +94,11 @@ namespace WinstallUI
                        __FrmTask.lvTriggers.Items.Add(lvi);
                    }));
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace WinstallUI.Modules.Src
 
             if (string.IsNullOrEmpty(strMessage))
             {
-                var dlgResult = MessageBox.Show(
+                DialogResult dlgResult = MessageBox.Show(
                         "An unhandled exception was thrown. No message available. To view stack trace, click 'Ok'.",
                         "Exception",
                         MessageBoxButtons.OKCancel,
@@ -28,7 +28,7 @@ namespace WinstallUI.Modules.Src
             }
             else
             {
-                var dlgResult = MessageBox.Show(
+                DialogResult dlgResult = MessageBox.Show(
                        "An unhandled exception was thrown. To view stack trace, click 'Ok'.\n" + strMessage,
                        "Exception",
                        MessageBoxButtons.OK,

@@ -18,6 +18,7 @@ namespace WinstallUI
         {
             if (!string.IsNullOrEmpty(AssemblyPath))
             {
+                AssemblyPath = Environment.ExpandEnvironmentVariables(AssemblyPath);
                 if (File.Exists(AssemblyPath))
                 {
                     PathToAssembly = AssemblyPath;
@@ -46,6 +47,5 @@ namespace WinstallUI
                 Stub.Save(Environment.ExpandEnvironmentVariables(savePath));
             }
         }
-
     }
 }

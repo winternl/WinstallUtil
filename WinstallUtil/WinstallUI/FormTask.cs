@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace WinstallUI
 {
-    public enum TaskType : int
+    public enum ModuleType : int
     {
         [Description("Copy directory")]
         COPY_DIR,
@@ -73,7 +73,7 @@ namespace WinstallUI
 
         void populateComboBox()
         {
-            foreach (var fldInfo in typeof(TaskType).GetFields())
+            foreach (var fldInfo in typeof(ModuleType).GetFields())
             {
                 var attr = fldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
                 if (attr != null && attr.Length > 0)
@@ -83,18 +83,18 @@ namespace WinstallUI
             }
         }
 
-        TaskType GetTaskFromDesc(string Desc)
+        ModuleType GetTaskFromDesc(string Desc)
         {
-            TaskType? tt = null;
+            ModuleType? tt = null;
 
-            foreach (var fldInfo in typeof(TaskType).GetFields())
+            foreach (var fldInfo in typeof(ModuleType).GetFields())
             {
                 var attr = fldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
                 if (attr != null && attr.Length > 0)
                 {
                     if (string.Compare(((attr.First() as DescriptionAttribute).Description), Desc) == 0)
                     {
-                        tt = (TaskType)fldInfo.GetValue(null);
+                        tt = (ModuleType)fldInfo.GetValue(null);
                     }
                 }
             }
@@ -111,7 +111,7 @@ namespace WinstallUI
 
             switch (GetTaskFromDesc(taskDesc))
             {
-                case TaskType.COPY_DIR:
+                case ModuleType.COPY_DIR:
                     {
                         panCopyDir.Visible = true;
                         panCopyDir.Enabled = true;
@@ -131,7 +131,7 @@ namespace WinstallUI
                         cbCopyDir.Sorted = true;
                     }
                     break;
-                case TaskType.COPY_FILE:
+                case ModuleType.COPY_FILE:
                     {
                         panCopyFile.Visible = true;
                         panCopyFile.Enabled = true;
@@ -151,7 +151,7 @@ namespace WinstallUI
                         cbCopyFileRoot.Sorted = true;
                     }
                     break;
-                case TaskType.INSTALL_PROG:
+                case ModuleType.INSTALL_PROG:
                     {
                         panInstall.Visible = true;
                         panInstall.Enabled = true;
@@ -159,7 +159,7 @@ namespace WinstallUI
                         panInstall.BringToFront();
                     }
                     break;
-                case TaskType.CREATE_ACCOUNT:
+                case ModuleType.CREATE_ACCOUNT:
                     {
                         panCreateUser.Visible = true;
                         panCreateUser.Enabled = true;
@@ -171,7 +171,7 @@ namespace WinstallUI
                         txtAccVerifyPassword.Clear();
                     }
                     break;
-                case TaskType.SCHEDULED_TASK:
+                case ModuleType.SCHEDULED_TASK:
                     {
                         panSchedTask.Visible = true;
                         panSchedTask.Enabled = true;

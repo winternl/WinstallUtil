@@ -118,10 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CopyDirectory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\CopyDirectory.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CopyFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\CopyFile.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Entrypoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Packer\Entrypoint.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Entrypoint1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\Src\Entrypoint.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ExceptionHandler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\Src\ExceptionHandler.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="InstallProgram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\InstallProgram.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Log" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\Src\Log.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="QuickLZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Packer\QuickLZ.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="ScheduledTask" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\ScheduledTask.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UserAccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Modules\UserAccount.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

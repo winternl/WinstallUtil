@@ -120,6 +120,8 @@ namespace WinstallUI
         {
             if (File.Exists(TempExePath))
             {
+                strSavePath = Environment.ExpandEnvironmentVariables(strSavePath);
+
                 if (File.Exists(strSavePath))
                     File.Delete(strSavePath);
 

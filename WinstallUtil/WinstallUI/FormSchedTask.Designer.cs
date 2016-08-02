@@ -38,6 +38,7 @@
             this.cbDay = new System.Windows.Forms.ComboBox();
             this.grpDateTime = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numHR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMN)).BeginInit();
             this.grpDateTime.SuspendLayout();
@@ -159,11 +160,22 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Day:";
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(112, 217);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(62, 23);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // FormSchedTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(259, 262);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.grpDateTime);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cbSchedTaskType);
@@ -198,5 +210,6 @@
         private System.Windows.Forms.ComboBox cbDay;
         private System.Windows.Forms.GroupBox grpDateTime;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnClose;
     }
 }

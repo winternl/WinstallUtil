@@ -14,9 +14,6 @@ namespace WinstallUI
         [STAThread]
         static void Main()
         {
-            var packer = new StubPacker(@"C:\Users\oph-admin\Downloads\ILSPY.exe");
-            packer.Pack("%HOMEPATH%\\Desktop\\Packed.exe");
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
