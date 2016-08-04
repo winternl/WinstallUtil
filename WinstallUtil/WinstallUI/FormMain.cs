@@ -21,36 +21,18 @@ namespace WinstallUI
 
             LocationChanged += FormMain_LocationChanged;
 
-            // Test 1
-            var linearProc = new Dictionary<ModuleCall, object[]>();
-            linearProc.Add(ModuleCall.Create(ModuleType.COPY_FILE), new object[] { });
-
-            // Test 2
-            var SrcFiles = new string[]
-            {
-                P.Resources.Entrypoint1,
-                P.Resources.ExceptionHandler,
-                P.Resources.Log
-            };
-
-            using (Compiler codeCompiler = new Compiler(SrcFiles))
-            {
-                codeCompiler.AddReference("System.dll");
-                codeCompiler.AddReference("System.Windows.Forms.dll");
-
-                codeCompiler.Compile();
-
-                codeCompiler.Save("%HOMEPATH%\\Desktop\\Test.exe");
-            }
-
-            StubPacker stubPacker = new StubPacker("%HOMEPATH%\\Desktop\\Test.exe");
-            stubPacker.Pack("%HOMEPATH%\\Desktop\\Packed_Test.exe");
-
             SRLScheduledTask srl_st = new SRLScheduledTask(new TSchedTask("TaskName", "C:\\Windows\\notepad.exe", TaskTrigger.DAILY, 12, 45));
             srl_st.Serialize();
 
             File.WriteAllBytes("C:\\Users\\OPH-ADMIN\\Desktop\\Test2.bin", srl_st.SerializedTemplate);
 
+            var codeGen = LCG.CreateFromContext(new LCGContext(P.Resources.Entrypoint, "Main"));
+            codeGen.EmitCall(ModuleTemplates.CopyFile, new object[] { "hi", "one", false });
+            codeGen.Push();
+            MessageBox.Show(codeGen.Pull());
+            codeGen.EmitCall(ModuleTemplates.CopyFile, new object[] { "hello", "world", true });
+            codeGen.Push();
+            MessageBox.Show(codeGen.Pull());
         }
 
         private void FormMain_LocationChanged(object sender, EventArgs e)

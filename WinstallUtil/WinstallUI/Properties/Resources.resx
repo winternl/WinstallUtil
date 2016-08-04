@@ -125,9 +125,6 @@
     <value>..\Modules\CopyFile.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Entrypoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Packer\Entrypoint.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Entrypoint1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Modules\Src\Entrypoint.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="ExceptionHandler" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -138,6 +135,9 @@
   </data>
   <data name="Log" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Modules\Src\Log.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PackerEntrypoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Packer\Entrypoint.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="QuickLZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Packer\QuickLZ.cs;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

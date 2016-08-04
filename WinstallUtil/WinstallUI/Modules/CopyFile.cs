@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WinstallUI.Modules
 {
-    class clsCopyFile
+    public class clsCopyFile
     {
         public static bool CopyFile(string srcPath, string dstPath, bool bOverwrite)
         {

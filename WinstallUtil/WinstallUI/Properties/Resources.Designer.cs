@@ -101,7 +101,7 @@ namespace WinstallUI.Properties {
         ///
         ///namespace WinstallUI.Modules
         ///{
-        ///    class clsCopyFile
+        ///    public class clsCopyFile
         ///    {
         ///        public static bool CopyFile(string srcPath, string dstPath, bool bOverwrite)
         ///        {
@@ -114,36 +114,11 @@ namespace WinstallUI.Properties {
         ///
         ///                var dirInfo = new DirectoryInfo(Path.GetDirectoryName(dstPath));
         ///
-        ///                if  [rest of string was truncated]&quot;;.
+        ///             [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CopyFile {
             get {
                 return ResourceManager.GetString("CopyFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to using System;
-        ///using System.IO;
-        ///using System.Reflection;
-        ///using System.Runtime.Remoting;
-        ///
-        ///namespace WinstallUI.Packer
-        ///{
-        ///    class Entrypoint
-        ///    {
-        ///        static void Main()
-        ///        {
-        ///            using (Stream rStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(&quot;1&quot;))
-        ///            {
-        ///                if (rStream != null &amp;&amp; rStream.Length &gt; 0)
-        ///                {
-        ///                    byte[] installerExe = new byte[rStream.Length];
-        ///                    rStream.Read(installerExe, 0, (int) [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string Entrypoint {
-            get {
-                return ResourceManager.GetString("Entrypoint", resourceCulture);
             }
         }
         
@@ -160,9 +135,9 @@ namespace WinstallUI.Properties {
         ///}
         ///.
         /// </summary>
-        internal static string Entrypoint1 {
+        internal static string Entrypoint {
             get {
-                return ResourceManager.GetString("Entrypoint1", resourceCulture);
+                return ResourceManager.GetString("Entrypoint", resourceCulture);
             }
         }
         
@@ -183,8 +158,8 @@ namespace WinstallUI.Properties {
         ///
         ///            if (string.IsNullOrEmpty(strMessage))
         ///            {
-        ///                var dlgResult = MessageBox.Show(
-        ///                        &quot;An unhandled exception was thrown. No message available. To view stack t [rest of string was truncated]&quot;;.
+        ///                DialogResult dlgResult = MessageBox.Show(
+        ///                        &quot;An unhandled exception was thrown. No message available. To vie [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ExceptionHandler {
             get {
@@ -218,21 +193,11 @@ namespace WinstallUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System;
-        ///using System.Collections.Generic;
-        ///using System.Linq;
-        ///using System.Text;
-        ///
-        ///namespace WinstallUI.Modules.Src
+        ///   Looks up a localized string similar to namespace WinstallUI.Modules.Src
         ///{
         ///    public static class Log
         ///    {
-        ///        public static string LogPath { get; private set; }
-        ///
-        ///        static Log()
-        ///        {
-        ///
-        ///        }
+        ///        
         ///    }
         ///}
         ///.
@@ -240,6 +205,31 @@ namespace WinstallUI.Properties {
         internal static string Log {
             get {
                 return ResourceManager.GetString("Log", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.IO;
+        ///using System.Reflection;
+        ///using System.Runtime.Remoting;
+        ///
+        ///namespace WinstallUI.Packer
+        ///{
+        ///    class Entrypoint
+        ///    {
+        ///        static void Main()
+        ///        {
+        ///            using (Stream rStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(&quot;1&quot;))
+        ///            {
+        ///                if (rStream != null &amp;&amp; rStream.Length &gt; 0)
+        ///                {
+        ///                    byte[] installerExe = new byte[rStream.Length];
+        ///                    rStream.Read(installerExe, 0, (int) [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PackerEntrypoint {
+            get {
+                return ResourceManager.GetString("PackerEntrypoint", resourceCulture);
             }
         }
         

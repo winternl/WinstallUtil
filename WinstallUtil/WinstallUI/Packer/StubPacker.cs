@@ -32,7 +32,7 @@ namespace WinstallUI
         {
             string[] srcFiles = new string[]
             {
-                Properties.Resources.Entrypoint,
+                Properties.Resources.PackerEntrypoint,
                 Properties.Resources.QuickLZ
             };
 

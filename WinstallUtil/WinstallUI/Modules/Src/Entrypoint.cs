@@ -4,7 +4,7 @@
     {
         static void Main()
         {
-            System.Windows.Forms.MessageBox.Show("Hello World");
+            
         }
     }
 }

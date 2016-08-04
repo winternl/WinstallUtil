@@ -12,14 +12,17 @@ namespace WinstallUI
 
         static EPGen()
         {
-            OriginalSource = Properties.Resources.Entrypoint1;
+            OriginalSource = Properties.Resources.Entrypoint;
         }
 
-        private static void EmitCall(ModuleCall Call, params object[] Args)
+        private static void EmitCall(ModuleCall Call, params string[] Args)
         {
+            StringBuilder sb = new StringBuilder();
+
             switch (Call.Type)
             {
                 case ModuleType.COPY_DIR:
+                    // proto: public static bool CopyFile(string srcPath, string dstPath, bool bOverwrite)
                     break;
                 case ModuleType.COPY_FILE:
                     break;
