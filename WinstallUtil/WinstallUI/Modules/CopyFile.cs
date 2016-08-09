@@ -8,7 +8,7 @@ namespace WinstallUI.Modules
 {
     public class clsCopyFile
     {
-        public static bool CopyFile(string srcPath, string dstPath, bool bOverwrite)
+        public static bool Copy(string srcPath, string dstPath, bool bOverwrite)
         {
             bool bRet = false;
 

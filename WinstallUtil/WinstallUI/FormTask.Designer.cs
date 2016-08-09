@@ -114,7 +114,7 @@
             this.txtTaskName.MaxLength = 64;
             this.txtTaskName.Name = "txtTaskName";
             this.txtTaskName.Size = new System.Drawing.Size(257, 23);
-            this.txtTaskName.TabIndex = 2;
+            this.txtTaskName.TabIndex = 0;
             // 
             // cbTaskTypes
             // 
@@ -124,7 +124,7 @@
             this.cbTaskTypes.Name = "cbTaskTypes";
             this.cbTaskTypes.Size = new System.Drawing.Size(257, 23);
             this.cbTaskTypes.Sorted = true;
-            this.cbTaskTypes.TabIndex = 3;
+            this.cbTaskTypes.TabIndex = 2;
             // 
             // grpParameters
             // 
@@ -565,7 +565,7 @@
             this.txtTaskDescription.MaxLength = 1024;
             this.txtTaskDescription.Name = "txtTaskDescription";
             this.txtTaskDescription.Size = new System.Drawing.Size(257, 23);
-            this.txtTaskDescription.TabIndex = 6;
+            this.txtTaskDescription.TabIndex = 1;
             // 
             // lblTaskDescription
             // 
@@ -584,6 +584,7 @@
             this.btnCreateTask.TabIndex = 0;
             this.btnCreateTask.Text = "Create";
             this.btnCreateTask.UseVisualStyleBackColor = true;
+            this.btnCreateTask.Click += new System.EventHandler(this.btnCreateTask_Click);
             // 
             // btnTestTask
             // 

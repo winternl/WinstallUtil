@@ -190,7 +190,7 @@ namespace WinstallUI
 
         private void btnTestTask_Click(object sender, EventArgs e)
         {
-            Modules.ScheduledTask.test();
+            Modules.ScheduledTask.Schedule();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -256,6 +256,27 @@ namespace WinstallUI
                 foreach (var i in lvTriggers.SelectedItems)
                     lvTriggers.Items.Remove((ListViewItem)i);
             }
+        }
+
+        private void btnCreateTask_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTaskName.Text))
+                return;
+
+            __FormMain.Invoke(
+                new MethodInvoker(
+                    () =>
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = txtTaskName.Text;
+                lvi.SubItems.Add(txtTaskDescription.Text);
+
+                __FormMain.lvTaskItems.Items.Add(lvi);
+                __FormMain.lvTaskItems.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }));
+
+            txtTaskName.Clear();
+            txtTaskDescription.Clear();
         }
     }
 }

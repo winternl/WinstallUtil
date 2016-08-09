@@ -92,6 +92,7 @@ namespace WinstallUI
 
                        lvi.SubItems.Add(Desc);
                        __FrmTask.lvTriggers.Items.Add(lvi);
+                       __FrmTask.lvTriggers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                    }));
             }
         }

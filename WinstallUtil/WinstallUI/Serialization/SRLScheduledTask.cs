@@ -9,6 +9,11 @@ namespace WinstallUI.Serialization
     {
         public SRLScheduledTask(TSchedTask TemplateStructure) : base(TemplateStructure) { }
 
+        public override TSchedTask Deserialize()
+        {
+            throw new NotImplementedException();
+        }
+
         public override byte[] Serialize()
         {
             byte[] taskName = Encoding.Unicode.GetBytes(Template.Name);

@@ -39,7 +39,7 @@ namespace WinstallUI.Modules.Src
             string currentPath = typeof(TestCase).Assembly.Location;
             string destPath = Path.Combine(Path.GetDirectoryName(currentPath), "Tests\\TestCopy.exe");
 
-            Debug.Assert(clsCopyFile.CopyFile(currentPath, destPath, true) && File.Exists(destPath), "Test Failed - Copy File Module");
+            Debug.Assert(clsCopyFile.Copy(currentPath, destPath, true) && File.Exists(destPath), "Test Failed - Copy File Module");
 
             File.Delete(destPath);
         }

@@ -1,8 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
 using System.DirectoryServices.AccountManagement;
-using System.Diagnostics;
-using System.Security.Principal;
-using System;
 
 namespace WinstallUI.Modules
 {

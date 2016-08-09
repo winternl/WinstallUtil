@@ -110,28 +110,28 @@ namespace WinstallUI
             switch (tType)
             {
                 case ModuleType.COPY_DIR:
-                    sb.Append("clsCopyDirectory.CopyDir(");
+                    sb.Append("clsCopyDirectory.Copy(");
                     break;
                 case ModuleType.COPY_FILE:
-                    sb.Append("clsCopyFile.CopyFile(");
+                    sb.Append("clsCopyFile.Copy(");
                     break;
                 case ModuleType.SCHEDULED_TASK:
-                    sb.Append("clsScheduledTask.CopyFile(");
+                    sb.Append("clsScheduledTask.Schedule(");
                     break;
                 case ModuleType.CREATE_ACCOUNT:
-                    sb.Append("clsCreateAccount.CopyFile(");
+                    sb.Append("clsCreateAccount.Create(");
                     break;
                 case ModuleType.INSTALL_PROG:
-                    sb.Append("clsInstallProgram.CopyFile(");
+                    sb.Append("clsInstallProgram.Install(");
                     break;
                 case ModuleType.RUN_PROG:
-                    sb.Append("clsRunProgram.CopyFile(");
+                    sb.Append("clsRunProgram.Run(");
                     break;
                 case ModuleType.UPDATE:
-                    sb.Append("clsUpdate.CopyFile(");
+                    sb.Append("clsUpdate.Update(");
                     break;
                 case ModuleType.EXEC_CMD:
-                    sb.Append("clsExecCommand.CopyFile(");
+                    sb.Append("clsExecCommand.Execute(");
                     break;
                 default:
                     throw new Exception("Module type not found.");
@@ -186,7 +186,7 @@ namespace WinstallUI
 
     public static class ModuleTemplates
     {
-        public static MCopyFile CopyFile;
+        public static MCopyFile CopyFile { get; private set; }
 
         static ModuleTemplates()
         {

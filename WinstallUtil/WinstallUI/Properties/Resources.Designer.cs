@@ -78,13 +78,13 @@ namespace WinstallUI.Properties {
         ///
         ///    class clsCopyDirectory
         ///    {
-        ///        public static CopyDirResult CopyDirectory(string srcPath, string dstPath, bool bRecurse)
+        ///        public static CopyDirResult Copy(string srcPath, string dstPath, bool bRecurse)
         ///        {
         ///            CopyDirResult fRet = CopyDirResult.SUCCESS;
         ///
         ///            do
         ///            {
-        ///          [rest of string was truncated]&quot;;.
+        ///                va [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CopyDirectory {
             get {
@@ -103,7 +103,7 @@ namespace WinstallUI.Properties {
         ///{
         ///    public class clsCopyFile
         ///    {
-        ///        public static bool CopyFile(string srcPath, string dstPath, bool bOverwrite)
+        ///        public static bool Copy(string srcPath, string dstPath, bool bOverwrite)
         ///        {
         ///            bool bRet = false;
         ///
@@ -114,7 +114,7 @@ namespace WinstallUI.Properties {
         ///
         ///                var dirInfo = new DirectoryInfo(Path.GetDirectoryName(dstPath));
         ///
-        ///             [rest of string was truncated]&quot;;.
+        ///                 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CopyFile {
             get {
@@ -129,7 +129,7 @@ namespace WinstallUI.Properties {
         ///    {
         ///        static void Main()
         ///        {
-        ///            System.Windows.Forms.MessageBox.Show(&quot;Hello World&quot;);
+        ///            
         ///        }
         ///    }
         ///}
@@ -264,13 +264,13 @@ namespace WinstallUI.Properties {
         ///{
         ///    public static class ScheduledTask
         ///    {
-        ///        public static void test()
+        ///        public static void Schedule()
         ///        {
         ///            ITaskService taskService = new TaskSchedulerClass();
         ///            taskService.Connect();
         ///            ITaskDefinition taskDefinition = taskService.NewTask(0);
         ///            taskDefinition.Settings.Enabled = true;
-        ///            taskDefinition.Settings.Compatibil [rest of string was truncated]&quot;;.
+        ///            taskDefinition.Settings.Compat [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ScheduledTask {
             get {
@@ -279,11 +279,18 @@ namespace WinstallUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System.Linq;
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon SoftwareInstall {
+            get {
+                object obj = ResourceManager.GetObject("SoftwareInstall", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System.Diagnostics;
         ///using System.DirectoryServices.AccountManagement;
-        ///using System.Diagnostics;
-        ///using System.Security.Principal;
-        ///using System;
         ///
         ///namespace WinstallUI.Modules
         ///{
@@ -294,7 +301,10 @@ namespace WinstallUI.Properties {
         ///            if (string.IsNullOrEmpty(strUsername) ||
         ///                strUsername.Length &gt; 104 ||
         ///                string.IsNullOrEmpty(strPassword) ||
-        ///                 strPassword.Le [rest of string was truncated]&quot;;.
+        ///                 strPassword.Length &gt; 127)
+        ///                return;
+        ///
+        ///            PrincipalContext  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UserAccount {
             get {

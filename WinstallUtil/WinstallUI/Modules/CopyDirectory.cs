@@ -15,7 +15,7 @@ namespace WinstallUI.Modules
 
     class clsCopyDirectory
     {
-        public static CopyDirResult CopyDirectory(string srcPath, string dstPath, bool bRecurse)
+        public static CopyDirResult Copy(string srcPath, string dstPath, bool bRecurse)
         {
             CopyDirResult fRet = CopyDirResult.SUCCESS;
 
@@ -65,7 +65,7 @@ namespace WinstallUI.Modules
                 {
                     foreach (var dirEntry in nestedDirs)
                     {
-                        fRet = CopyDirectory(
+                        fRet = Copy(
                                              dirEntry.FullName,
                                              Path.Combine(dstPath, dirEntry.Name),
                                              true
